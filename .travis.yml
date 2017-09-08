@@ -4,7 +4,7 @@ android:
   components:
     - tools
     - platform-tools
-    - build-tools-23.0.2
+    - build-tools-25.0.2
     - android-23
     - extra-google-m2repository
     - extra-android-m2repository
@@ -25,11 +25,12 @@ before_install:
   - export ANDROID_NDK_HOME=$HOME/android-ndk-root
   - wget https://github.com/bazelbuild/bazel/releases/download/0.5.4/bazel_0.5.4-linux-x86_64.deb
   - sudo dpkg -i bazel_0.5.4-linux-x86_64.deb
-  - git clone https://github.com/tensorflow/tensorflow.git $HOME/tensorflow
+  - git clone --recurse-submodules https://github.com/tensorflow/tensorflow.git $HOME/tensorflow
   - cd $HOME/tensorflow && git checkout v1.3.0
+  - cp $HOME/luk-ai/build-tensorflow/WORKSPACE $HOME/tensorflow/WORKSPACE
 
 install:
 
 script:
-  - cd $HOME/tensorflow && bazel build //tensorflow/contrib/android:libtensorflow_inference.so --crosstool_top=//external:android/crosstool --host_crosstool_top=@bazel_tools//tools/cpp:toolchain --cpu=armeabi-v7a
+  - cd $HOME/tensorflow && bazel build --verbose_failures //tensorflow/contrib/android:libtensorflow_inference.so --crosstool_top=//external:android/crosstool --host_crosstool_top=@bazel_tools//tools/cpp:toolchain --cpu=armeabi-v7a
 

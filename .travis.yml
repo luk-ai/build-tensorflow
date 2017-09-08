@@ -27,7 +27,7 @@ before_install:
   - sudo dpkg -i bazel_0.5.4-linux-x86_64.deb
   - git clone --recurse-submodules https://github.com/tensorflow/tensorflow.git $HOME/tensorflow
   - cd $HOME/tensorflow && git checkout v1.3.0
-  - cp $HOME/luk-ai/build-tensorflow/WORKSPACE $HOME/tensorflow/WORKSPACE
+  - cp $TRAVIS_BUILD_DIR/WORKSPACE $HOME/tensorflow/WORKSPACE
 
 install:
 

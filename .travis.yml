@@ -23,8 +23,8 @@ addons:
 before_install:
   - git clone https://github.com/urho3d/android-ndk.git $HOME/android-ndk-root
   - export ANDROID_NDK_HOME=$HOME/android-ndk-root
-  - wget https://github.com/bazelbuild/bazel/releases/download/0.5.4/bazel_0.5.4-linux-x86_64.deb -o bazel.deb
-  - sudo dpkg -i bazel.deb
+  - wget https://github.com/bazelbuild/bazel/releases/download/0.5.4/bazel_0.5.4-linux-x86_64.deb
+  - sudo dpkg -i bazel_0.5.4-linux-x86_64.deb
   - git clone https://github.com/tensorflow/tensorflow.git $HOME/tensorflow
   - cd $HOME/tensorflow && git checkout v1.3.0
 

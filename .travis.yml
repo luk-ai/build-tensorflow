@@ -16,6 +16,7 @@ addons:
     - pandoc
     - wget
     - pkg-config
+    - ant
   artifacts:
     paths:
       - $HOME/tensorflow/bazel-bin/tensorflow/contrib/android/libtensorflow_inference.so

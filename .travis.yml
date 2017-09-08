@@ -18,7 +18,7 @@ addons:
     - pkg-config
   artifacts:
     paths:
-      - $(git ls-files -o | grep app/build/outputs | tr "\n" ":")
+      - tensorflow/bazel-bin/tensorflow/contrib/android/libtensorflow_inference.so
 
 before_install:
   - git clone https://github.com/urho3d/android-ndk.git $HOME/android-ndk-root

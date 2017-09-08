@@ -16,7 +16,6 @@ addons:
     - pandoc
     - wget
     - pkg-config
-    - ant
   artifacts:
     paths:
       - $HOME/tensorflow/bazel-bin/tensorflow/contrib/android/libtensorflow_inference.so
@@ -29,6 +28,8 @@ before_install:
   - git clone https://github.com/tensorflow/tensorflow.git $HOME/tensorflow
   - cd $HOME/tensorflow && git checkout v1.3.0
 
-scripts:
+install:
+
+script:
   - cd $HOME/tensorflow && bazel build //tensorflow/contrib/android:libtensorflow_inference.so --crosstool_top=//external:android/crosstool --host_crosstool_top=@bazel_tools//tools/cpp:toolchain --cpu=armeabi-v7a
 

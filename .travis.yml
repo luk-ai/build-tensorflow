@@ -19,6 +19,7 @@ addons:
   artifacts:
     paths:
       - $HOME/tensorflow/bazel-bin/tensorflow/contrib/android/libtensorflow_inference.so
+      - $HOME/tensorflow/bazel-bin/tensorflow/libtensorflow.so
 
 before_install:
   - wget -q https://dl.google.com/android/repository/android-ndk-r12b-linux-x86_64.zip
@@ -34,5 +35,5 @@ before_install:
 install:
 
 script:
-  - cd $HOME/tensorflow && bazel build --verbose_failures //tensorflow/contrib/android:libtensorflow_inference.so --crosstool_top=//external:android/crosstool --host_crosstool_top=@bazel_tools//tools/cpp:toolchain --cpu=armeabi-v7a
+  - cd $HOME/tensorflow && bazel build --verbose_failures //tensorflow/contrib/android:libtensorflow_inference.so //tensorflow:libtensorflow.so --crosstool_top=//external:android/crosstool --host_crosstool_top=@bazel_tools//tools/cpp:toolchain --cpu=armeabi-v7a
 

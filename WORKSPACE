@@ -19,10 +19,10 @@ load("//tensorflow:workspace.bzl", "tf_workspace")
 # Uncomment and update the paths in these entries to build the Android demo.
 android_sdk_repository(
     name = "androidsdk",
-    api_level = 25,
+    api_level = 23,
     # Ensure that you have the build_tools_version below installed in the
     # SDK manager as it updates periodically.
-    build_tools_version = "25.0.2",
+    build_tools_version = "23.0.2",
     # Replace with path to Android SDK on your system
     path = "/usr/local/android-sdk",
 )
@@ -36,7 +36,7 @@ android_ndk_repository(
     # archtectures or the Android NDK will automatically select biggest
     # API level that it supports without notice.
     # Note that the NDK version is not the API level.
-    api_level=25)
+    api_level=23)
 
 # Please add all new TensorFlow dependencies in workspace.bzl.
 tf_workspace()

@@ -30,7 +30,6 @@ before_install:
   - sudo dpkg -i bazel_0.5.4-linux-x86_64.deb
   - git clone --recurse-submodules https://github.com/tensorflow/tensorflow.git $HOME/tensorflow
   - cd $HOME/tensorflow
-  - git checkout v1.3.0
   - sed -i '\@https://github.com/google/protobuf/archive/0b059a3d8a8f8aa40dde7bea55edca4ec5dfea66.tar.gz@d' tensorflow/workspace.bzl
   - export CC_OPT_FLAGS="-march=armv7-a -std=c++11"
   - yes '' | ./configure

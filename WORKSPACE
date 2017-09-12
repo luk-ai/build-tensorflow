@@ -22,7 +22,7 @@ android_sdk_repository(
     api_level = 23,
     # Ensure that you have the build_tools_version below installed in the
     # SDK manager as it updates periodically.
-    build_tools_version = "23.0.2",
+    build_tools_version = "25.0.2",
     # Replace with path to Android SDK on your system
     path = "/usr/local/android-sdk",
 )

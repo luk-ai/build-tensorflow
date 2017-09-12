@@ -31,6 +31,7 @@ before_install:
   - git clone --recurse-submodules https://github.com/tensorflow/tensorflow.git $HOME/tensorflow
   - cd $HOME/tensorflow
   - sed -i '\@https://github.com/google/protobuf/archive/0b059a3d8a8f8aa40dde7bea55edca4ec5dfea66.tar.gz@d' tensorflow/workspace.bzl
+  - sed -i '\@":c_api_internal"@d' tensorflow/c/eager/BUILD
   - export CC_OPT_FLAGS="-march=armv7-a -std=c++11"
   - yes '' | ./configure
   - cp $TRAVIS_BUILD_DIR/WORKSPACE $HOME/tensorflow/WORKSPACE

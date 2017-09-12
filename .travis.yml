@@ -32,7 +32,7 @@ before_install:
   - cd $HOME/tensorflow
   - git checkout v1.3.0
   - sed -i '\@https://github.com/google/protobuf/archive/0b059a3d8a8f8aa40dde7bea55edca4ec5dfea66.tar.gz@d' tensorflow/workspace.bzl
-  - export CC_OPT_FLAGS="-march=armv7"
+  - export CC_OPT_FLAGS="-march=armv7-a"
   - yes '' | ./configure
   - cp $TRAVIS_BUILD_DIR/WORKSPACE $HOME/tensorflow/WORKSPACE
 

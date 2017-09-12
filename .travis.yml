@@ -32,6 +32,7 @@ before_install:
   - cd $HOME/tensorflow
   - sed -i '\@https://github.com/google/protobuf/archive/0b059a3d8a8f8aa40dde7bea55edca4ec5dfea66.tar.gz@d' tensorflow/workspace.bzl
   - sed -i 's@":c_api_internal"@"//tensorflow/c:c_api_internal"@' tensorflow/c/eager/BUILD
+  - sed -i '\@c/eager:c_api"@d' tensorflow/BUILD
   - export CC_OPT_FLAGS="-march=armv7-a -std=c++11"
   - yes '' | ./configure
   - sed -i 's@--copt=-std=c++11@@' .tf_configure.bazelrc

@@ -32,12 +32,12 @@ before_install:
   - cd $HOME/tensorflow
   - git checkout v1.3.0
   - sed -i '\@https://github.com/google/protobuf/archive/0b059a3d8a8f8aa40dde7bea55edca4ec5dfea66.tar.gz@d' tensorflow/workspace.bzl
-  - yes '' | ./configure
+  - cat $TRAVIS_BUILD_DIR/config.txt | ./configure
   - cp $TRAVIS_BUILD_DIR/WORKSPACE $HOME/tensorflow/WORKSPACE
 
 install:
 
 script:
   - cd $HOME/tensorflow
-  - bazel build --config=opt --verbose_failures //tensorflow/contrib/android:libtensorflow_inference.so //tensorflow:libtensorflow.so --crosstool_top=//external:android/crosstool --host_crosstool_top=@bazel_tools//tools/cpp:toolchain --cpu=armeabi-v7a --cxxopt=-march=armv7 --copt=-march=armv7
+  - bazel build --config=opt --verbose_failures //tensorflow/contrib/android:libtensorflow_inference.so //tensorflow:libtensorflow.so --crosstool_top=//external:android/crosstool --host_crosstool_top=@bazel_tools//tools/cpp:toolchain --cpu=armeabi-v7a
 

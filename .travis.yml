@@ -42,5 +42,5 @@ install:
 
 script:
   - cd $HOME/tensorflow
-  - bazel build --config=opt --verbose_failures //tensorflow/contrib/android:libtensorflow_inference.so //tensorflow:libtensorflow.so --crosstool_top=//external:android/crosstool --host_crosstool_top=@bazel_tools//tools/cpp:toolchain --cpu=armeabi-v7a
+  - bazel build --config=dbg --verbose_failures //tensorflow/contrib/android:libtensorflow_inference.so --crosstool_top=//external:android/crosstool --host_crosstool_top=@bazel_tools//tools/cpp:toolchain --cpu=armeabi-v7a #  //tensorflow:libtensorflow.so
 
